@@ -587,6 +587,9 @@ const char *_XMMediaFormatForCodecIdentifier(XMCodecIdentifier codecIdentifier)
 #pragma mark XM_H323_H261_Capability methods
 
 XM_H323_H261_Capability::XM_H323_H261_Capability()
+: qcifMPI(1),
+  cifMPI(1),
+  maxBitRate(XM_MAX_H261_BITRATE/100)
 {
   SetPayloadType(XM_MEDIA_FORMAT_H261.GetPayloadType());
 }

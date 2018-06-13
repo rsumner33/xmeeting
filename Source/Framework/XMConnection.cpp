@@ -32,11 +32,11 @@ private:
 
 XMConnection::XMConnection(OpalCall & call, XMEndPoint & _endpoint)
 : OpalLocalConnection(call, _endpoint, NULL),
-  endpoint(_endpoint),
-  h261VideoFormat(XM_MEDIA_FORMAT_H261),
-  h263VideoFormat(XM_MEDIA_FORMAT_H263),
-  h263PlusVideoFormat(XM_MEDIA_FORMAT_H263PLUS),
-  h264VideoFormat(XM_MEDIA_FORMAT_H264)
+  endpoint(_endpoint)
+  //h261VideoFormat(XM_MEDIA_FORMAT_H261),
+  //h263VideoFormat(XM_MEDIA_FORMAT_H263),
+  //h263PlusVideoFormat(XM_MEDIA_FORMAT_H263PLUS),
+  //h264VideoFormat(XM_MEDIA_FORMAT_H264)
 {
   if (endpoint.GetEnableSilenceSuppression()) {
     silenceDetector = new XMPCM16SilenceDetector(endpoint.GetManager().GetSilenceDetectParams());

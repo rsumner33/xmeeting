@@ -98,6 +98,9 @@ XMOpalManager::XMOpalManager(bool _logCallStatistics)
   stun = new XMSTUNClient();
   interfaceMonitor = new XMInterfaceMonitor(*this);
   interfaceUpdateThread = NULL;
+  
+  // ensure all video media formats are loaded
+  XMGetMediaFormat_H261();
 }
 
 XMOpalManager::~XMOpalManager()
