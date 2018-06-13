@@ -133,7 +133,18 @@ void _XMParseURLCallback(const char *displayName,
   return nil;
 }
 
-#pragma mark Public Methods
+- (void)dealloc
+{
+  [url release];
+  [displayName release];
+  [username release];
+  [host release];
+  
+  [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Getting Different Representations
 
 - (NSString *)stringRepresentation
 {

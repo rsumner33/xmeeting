@@ -14,7 +14,7 @@
 #import "XMCallAddressManager.h"
 
 /**
- * This class implements the simple most address resource, containing
+* This class implements the simple most address resource, containing
  * only an address and a protocol information
  **/
 @interface XMSimpleAddressResource : XMAddressResource <XMCallAddress> {
@@ -44,7 +44,7 @@
 @end
 
 /**
- * Simple class that wraps another address resource and implements
+* Simple class that wraps another address resource and implements
  * the XMCallAddress interface
  **/
 @interface XMSimpleAddressResourceWrapper : NSObject <XMCallAddress> {

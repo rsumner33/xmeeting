@@ -303,6 +303,10 @@
 {
 }
 
+- (void)setProvider:(id<XMCallAddressProvider>)provider
+{
+}
+
 - (XMAddressResource *)addressResource
 {
   return [self callAddress];
