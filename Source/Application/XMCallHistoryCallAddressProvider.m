@@ -214,6 +214,29 @@ NSString *XMKey_CallHistoryRecords = @"XMeeting_CallHistoryRecords";
   return nil;
 }
 
+- (id<XMCallAddress>)addressMatchingResource:(XMAddressResource *)addressResource
+{
+    NSString *address = [addressResource address];
+    XMCallProtocol callProtocol = [addressResource callProtocol];
+    
+    unsigned i;
+	unsigned count = [callHistoryRecords count];
+	
+	for(i = 0; i < count; i++)
+	{
+		XMCallHistoryRecord *record = (XMCallHistoryRecord *)[callHistoryRecords objectAtIndex:i];
+        
+		if ([record type] == XMCallHistoryRecordType_GeneralRecord &&
+            [record callProtocol] == callProtocol && 
+            [[record address] caseInsensitiveCompare:address] == NSOrderedSame)
+        {
+            return record;
+        }
+	}
+    
+    return nil;
+}
+
 - (NSArray *)alternativesForAddress:(id<XMCallAddress>)callAddress selectedIndex:(unsigned *)selectedIndex
 {
   XMCallHistoryRecord *record = (XMCallHistoryRecord *)callAddress;

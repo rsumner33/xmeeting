@@ -3538,6 +3538,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D15435EB0C01FB62002A027E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D15436510C020535002A027E /* XMeetingABPlugin-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */

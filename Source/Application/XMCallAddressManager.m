@@ -120,6 +120,22 @@
   return nil;
 }
 
+- (id<XMCallAddress>)addressMatchingResource:(XMAddressResource *)addressResource
+{
+    unsigned i;
+    unsigned count = [callAddressProviders count];
+    
+    for (i = 0; i < count; i++) 
+    {
+        id<XMCallAddressProvider> provider = (id<XMCallAddressProvider>)[callAddressProviders objectAtIndex:i];
+        id<XMCallAddress> address = [provider addressMatchingResource:addressResource];
+        if (address != nil) {
+            return address;
+        }
+    }
+    return nil;
+}
+
 - (NSArray *)alternativesForAddress:(id<XMCallAddress>)address selectedIndex:(unsigned *)selectedIndex
 {
   id<XMCallAddressProvider> provider = [address provider];

@@ -310,6 +310,32 @@
 }
 
 #pragma mark -
+#pragma mark Services implementation
+
+- (void)handleServicesString:(NSPasteboard *)pboard
+                    userData:(NSString *)userData
+                       error:(NSString **)error
+{
+    NSArray *types;
+    NSString *pboardString;
+	
+	types = [pboard types];
+	if(![types containsObject:NSStringPboardType])
+	{
+		*error = @"No pboard string";
+		return;
+	}
+	pboardString = [pboard stringForType:NSStringPboardType];
+	if(!pboardString)
+	{
+		*error = @"No pboard string";
+		return;
+	}
+	
+    *error = [XMURICommand tryToCallAddress:pboardString];
+}
+
+#pragma mark -
 #pragma mark Notification Methods
 
 - (void)_preferencesDidChange:(NSNotification *)notif

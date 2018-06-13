@@ -288,6 +288,12 @@
   return nil;
 }
 
+- (id<XMCallAddress>)addressMatchingResource:(XMAddressResource *)addressResource
+{
+    XMAddressBookManager *addressBookManager = [XMAddressBookManager sharedInstance];
+    return [addressBookManager recordWithCallAddress:[addressResource address]];
+}
+
 - (NSArray *)alternativesForAddress:(id<XMCallAddress>)address selectedIndex:(unsigned *)selectedIndex
 {
   XMAddressBookRecord *record = (XMAddressBookRecord *)address;
